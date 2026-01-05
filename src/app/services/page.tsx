@@ -3,121 +3,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
-
-// Service Data (reused/expanded)
-const services = [
-    {
-        id: "turnkey",
-        label: "Turnkey Projects",
-        title: "Complete Turnkey Solutions",
-        description: "From concept to handover, we manage every aspect of your project. Our turnkey solutions ensure a seamless experience, handling design, procurement, and construction with precision and care.",
-        details: [
-            "Comprehensive Project Management",
-            "Design & Build Integration",
-            "Quality Assurance & Control",
-            "Timely Delivery Assurance"
-        ],
-        image: "/service_turnkey.png"
-    },
-    {
-        id: "joinery",
-        label: "Joinery Works",
-        title: "Bespoke Joinery & Woodworks",
-        description: "Our custom joinery service brings warmth and character to any space. We create bespoke furniture, cabinets, and architectural woodwork that perfectly matches your vision.",
-        details: [
-            "Custom Furniture Design",
-            "High-Quality Wood Selection",
-            "Precision Manufacturing",
-            "Installation Excellence"
-        ],
-        image: "/service_joinery.png"
-    },
-    {
-        id: "flooring",
-        label: "Flooring Solutions",
-        title: "Premium Flooring Installation",
-        description: "Transform your floors with our wide range of premium materials. Whether it's marble, parquet, or modern tiles, we ensure flawless installation and long-lasting durability.",
-        details: [
-            "Marble & Stone Flooring",
-            "Parquet & Hardwood",
-            "Ceramic & Porcelain Tiles",
-            "Carpet Tiling for Offices"
-        ],
-        image: "/service_flooring.png"
-    },
-    {
-        id: "ceiling",
-        label: "Ceiling Works",
-        title: "False Ceiling & Lighting",
-        description: "Elevate your interiors with our artistic ceiling solutions. We specialize in gypsum, metal, and acoustic ceilings integrated with modern lighting systems.",
-        details: [
-            "Gypsum Board Ceilings",
-            "Metal & Grid Ceilings",
-            "Acoustic Solutions",
-            "Integrated Lighting Design"
-        ],
-        image: "/service_ceiling.png"
-    },
-    {
-        id: "partition",
-        label: "Partitions",
-        title: "Office Partitions & Dividers",
-        description: "Create functional and aesthetic workspaces with our partition systems. We offer glass, gypsum, and modular partitions that optimize space without compromising style.",
-        details: [
-            "Frameless Glass Partitions",
-            "Gypsum Wall Partitions",
-            "Acoustic Barriers",
-            "Operable Walls"
-        ],
-        image: "/service_partition.png"
-    },
-    {
-        id: "cladding",
-        label: "Wall Cladding",
-        title: "Decorative Wall Cladding",
-        description: "Add texture and depth to your walls. Our cladding services cover stone, wood, and 3D panels to create striking feature walls.",
-        details: [
-            "Stone & Marble Cladding",
-            "Wooden Wall Paneling",
-            "3D Wall Panels",
-            "Exterior Facade Cladding"
-        ],
-        image: "/service_cladding.png"
-    },
-    {
-        id: "handrail",
-        label: "Hand Rails",
-        title: "Staircase & Railing Systems",
-        description: "Safety meets style. We design and install modern handrails using glass, stainless steel, and wood to complement your interior architecture.",
-        details: [
-            "Glass Balustrades",
-            "Stainless Steel Railings",
-            "Wooden Handrails",
-            "Custom Metalwork"
-        ],
-        image: "/service_handrail.png"
-    },
-    {
-        id: "curtains",
-        label: "Curtains & Blinds",
-        title: "Window Treatments",
-        description: "Complete your space with our luxury curtains and blinds. We offer a vast selection of fabrics and motorized systems for convenience and elegance.",
-        details: [
-            "Blackout & Sheer Curtains",
-            "Roller & Roman Blinds",
-            "Motorized Systems",
-            "Custom Upholstery"
-        ],
-        image: "/service_curtains.png"
-    },
-];
+import { servicesData } from "@/data/services";
 
 export default function ServicesPage() {
     return (
-        <main className="bg-white min-h-screen overflow-x-hidden">
-            {/* Reuse Navbar */}
+        <main className="bg-gray-50 min-h-screen overflow-x-hidden">
             <Navbar />
 
             {/* Header Section */}
@@ -142,83 +34,63 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* Navigation Anchor Links Container */}
-            <div className="bg-white/80 backdrop-blur-md border-b border-gray-200 py-4 shadow-sm hidden md:block">
-                <div className="container mx-auto px-6 overflow-x-auto">
-                    <div className="flex justify-center gap-6 min-w-max">
-                        {services.map((service) => (
-                            <Link
-                                key={service.id}
-                                href={`#${service.id}`}
-                                className="text-sm font-bold text-[#0e2c53] hover:text-[#c4a05f] uppercase tracking-wider transition-colors"
-                            >
-                                {service.label}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Detailed Services Sections */}
-            <div className="container mx-auto px-6 py-20">
-                <div className="space-y-32">
-                    {services.map((service, index) => (
-                        <section
+            {/* Services Grid Section - New Card Design */}
+            <section className="py-20 lg:py-32 container mx-auto px-6 md:px-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {servicesData.map((service, index) => (
+                        <motion.div
                             key={service.id}
-                            id={service.id}
-                            className="scroll-mt-40 overflow-hidden" // Offset for sticky headers
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group flex flex-col h-full border border-gray-100"
                         >
-                            <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
-                                {/* Text Content */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6 }}
-                                    className="lg:w-1/2"
-                                >
-                                    <h2 className="text-3xl md:text-4xl font-bold text-[#0e2c53] mb-6 font-sans">
-                                        {service.title}
-                                    </h2>
-                                    <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                        {service.description}
-                                    </p>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        {service.details.map((detail, idx) => (
-                                            <div key={idx} className="flex items-center gap-3">
-                                                <CheckCircle2 className="w-5 h-5 text-[#c4a05f] flex-shrink-0" />
-                                                <span className="text-[#0e2c53] font-medium">{detail}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </motion.div>
-
-                                {/* Image Content */}
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6 }}
-                                    className="lg:w-1/2 relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl group"
-                                >
+                            {/* Card Image */}
+                            <div className="relative h-64 w-full overflow-hidden">
+                                <Link href={`/services/${service.id}`}>
                                     <Image
                                         src={service.image}
                                         alt={service.title}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    {/* Decorative border */}
-                                    <div className="absolute inset-0 border-[10px] border-white/10 pointer-events-none" />
-                                </motion.div>
+                                    {/* Overlay on hover */}
+                                    <div className="absolute inset-0 bg-[#0e2c53]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </Link>
                             </div>
-                        </section>
+
+                            {/* Card Content */}
+                            <div className="p-8 flex flex-col flex-grow relative">
+                                {/* Icon Badge */}
+                                <div className="absolute -top-6 right-8 bg-[#c4a05f] p-3 rounded-xl shadow-lg">
+                                    <service.icon className="w-6 h-6 text-[#0e2c53]" />
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-[#0e2c53] mb-3 font-sans group-hover:text-[#c4a05f] transition-colors">
+                                    <Link href={`/services/${service.id}`}>
+                                        {service.label}
+                                    </Link>
+                                </h3>
+
+                                <p className="text-gray-500 mb-6 line-clamp-2 leading-relaxed flex-grow">
+                                    {service.description}
+                                </p>
+
+                                <Link
+                                    href={`/services/${service.id}`}
+                                    className="inline-flex items-center gap-2 text-[#0e2c53] font-bold uppercase tracking-wider text-sm hover:translate-x-2 transition-transform duration-300"
+                                >
+                                    View More <ArrowRight className="w-4 h-4 text-[#c4a05f]" />
+                                </Link>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
+            </section>
 
             {/* CTA Footer */}
-            <section className="bg-[#0e2c53] py-20 mt-20 text-center">
+            <section className="bg-[#0e2c53] py-20 text-center">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl font-bold text-white mb-8">Ready to Transform Your Space?</h2>
                     <Link

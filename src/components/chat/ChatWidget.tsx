@@ -147,6 +147,10 @@ export default function ChatWidget() {
             keywords: ["mep", "hvac", "electric", "plumbing", "ac", "air condition"],
             response: "We have specific expertise in MEP (Mechanical, Electrical, and Plumbing) and HVAC. Our engineers handle all technical aspects to ensure your office is fully functional, safe, and comfortable. This allows us to truly be a one-stop Turnkey provider."
         },
+        {
+            keywords: ["furniture", "decor", "art", "accessory", "tables", "chairs", "sofa"],
+            response: "Our Furniture & Decor service offers curated selections to complete your interior design. We source luxury furniture, custom decor items, and art to match your style and needs."
+        },
 
 
 
@@ -343,7 +347,7 @@ export default function ChatWidget() {
                 onClick={toggleChat}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`${isOpen ? 'bg-[#c4a05f]' : 'bg-[#0e2c53]'} text-white rounded-full shadow-2xl flex items-center gap-3 px-6 py-4 transition-colors hover:shadow-[#c4a05f]/20 group`}
+                className={`${isOpen ? 'bg-[#c4a05f]' : 'bg-[#c4a05f]'} text-white rounded-full shadow-2xl flex items-center gap-3 px-6 py-4 transition-colors hover:shadow-[#c4a05f]/20 group`}
             >
                 {isOpen ? (
                     <X size={24} className="text-[#0e2c53]" />

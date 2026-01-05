@@ -7,13 +7,13 @@ export function Footer() {
 
     return (
         <footer className="bg-[#0e2c53] text-white pt-20 pb-10 relative overflow-hidden">
-         
+
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#c4a05f]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#c4a05f]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                   
+
                     <div className="space-y-6">
                         <Link href="/" className="block relative w-32 h-20 -ml-6">
                             <Image
@@ -27,15 +27,34 @@ export function Footer() {
                             Crafting exceptional spaces that blend luxury, functionality, and timeless design. Your vision, our expertise.
                         </p>
                         <div className="flex items-center gap-4">
-                            {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
-                                <Link
-                                    key={i}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#c4a05f] hover:text-[#0e2c53] transition-all duration-300 group"
-                                >
-                                    <Icon size={18} className="group-hover:scale-110 transition-transform" />
-                                </Link>
-                            ))}
+                            <Link
+                                href="#"
+                                aria-label="Facebook"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#c4a05f] hover:text-[#0e2c53] transition-all duration-300 group"
+                            >
+                                <Facebook size={18} className="group-hover:scale-110 transition-transform" />
+                            </Link>
+                            <Link
+                                href="#"
+                                aria-label="Instagram"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#c4a05f] hover:text-[#0e2c53] transition-all duration-300 group"
+                            >
+                                <Instagram size={18} className="group-hover:scale-110 transition-transform" />
+                            </Link>
+                            <Link
+                                href="#"
+                                aria-label="LinkedIn"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#c4a05f] hover:text-[#0e2c53] transition-all duration-300 group"
+                            >
+                                <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
+                            </Link>
+                            <Link
+                                href="#"
+                                aria-label="Twitter"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#c4a05f] hover:text-[#0e2c53] transition-all duration-300 group"
+                            >
+                                <Twitter size={18} className="group-hover:scale-110 transition-transform" />
+                            </Link>
                         </div>
                     </div>
 
@@ -50,7 +69,7 @@ export function Footer() {
                             {[
                                 { name: "Home", href: "/" },
                                 { name: "About Us", href: "/about" },
-                                { name: "Services", href: "/#services" },
+                                { name: "Services", href: "/services" },
                                 { name: "Projects", href: "/#projects" },
                                 { name: "Contact", href: "/#contact" }
                             ].map((item) => (
@@ -74,13 +93,19 @@ export function Footer() {
                             Our Services
                         </h4>
                         <ul className="space-y-3 font-sans">
-                            {["Turnkey Projects", "Joinery Works", "Flooring Solutions", "Ceiling Works", "Partitions"].map((item) => (
-                                <li key={item}>
+                            {[
+                                { name: "Turnkey Projects", href: "/services/turnkey" },
+                                { name: "Joinery Works", href: "/services/joinery" },
+                                { name: "Flooring Solutions", href: "/services/flooring" },
+                                { name: "Ceiling Works", href: "/services/ceiling" },
+                                { name: "Partitions", href: "/services/partition" }
+                            ].map((item) => (
+                                <li key={item.name}>
                                     <Link
-                                        href="#services"
+                                        href={item.href}
                                         className="text-gray-400 hover:text-[#c4a05f] transition-colors inline-block hover:translate-x-1 transition-transform"
                                     >
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}

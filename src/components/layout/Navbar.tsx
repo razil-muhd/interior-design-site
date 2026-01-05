@@ -34,8 +34,8 @@ export function Navbar() {
         <>
             <header
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 pointer-events-none ${isScrolled
-                    ? "py-3 bg-transparent"
-                    : "py-3 bg-[#0e2c53]/95 backdrop-blur-sm "
+                    ? "py-3 bg-transparent backdrop-blur-none"
+                    : "py-6 bg-transparent"
                     }`}
             >
                 <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -47,8 +47,7 @@ export function Navbar() {
                                 alt="CYASH Contracting"
                                 width={280}
                                 height={100}
-                                className={`w-auto object-contain transition-all duration-500 ${isScrolled ? "h-28 brightness-100 invert-0" : "h-28 brightness-0 invert"
-                                    }`}
+                                className={`w-auto object-contain transition-all duration-500 h-24 ${isScrolled ? "" : "brightness-0 invert"}`}
                             />
                         </Link>
                     </div>

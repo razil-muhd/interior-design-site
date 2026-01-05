@@ -33,7 +33,7 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
 
 const About = () => {
     return (
-        <section className="relative z-30 -mt-20  pb-20">
+        <section className="relative z-30 mt-12 lg:-mt-20 pb-20">
             <div className="container mx-auto px-4 md:px-0 max-w-6xl">
 
                 <div className="bg-white border-b border-gray-200 p-8 md:p-16 w-full relative overflow-hidden">
@@ -85,7 +85,7 @@ const About = () => {
                                 </motion.p>
                             </div>
 
-                            <div className="grid grid-cols-3 gap-8 pt-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-2">
                                 {/* Stat 1 */}
                                 <div className="space-y-1">
                                     <AnimatedCounter value={30} suffix="+" />
@@ -102,7 +102,7 @@ const About = () => {
                                     <p className="text-[#0e2c53] font-bold text-sm">Skilled Experts</p>
                                 </div>
 
-                              
+
                             </div>
                         </div>
 
