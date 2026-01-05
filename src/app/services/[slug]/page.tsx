@@ -70,16 +70,26 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
                                 {service.description}
                             </p>
 
-                            <h3 className="text-2xl font-bold text-[#0e2c53] mb-6">Key Features</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {service.details.map((detail, idx) => (
-                                    <div key={idx} className="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
-                                        <div className="bg-[#0e2c53] p-2 rounded-full flex-shrink-0">
-                                            <CheckCircle2 className="w-5 h-5 text-[#c4a05f]" />
-                                        </div>
-                                        <span className="text-gray-800 font-medium pt-1">{detail}</span>
-                                    </div>
-                                ))}
+                            <div className="bg-gradient-to-br from-[#0e2c53] to-[#1a4570] p-8 rounded-2xl text-white">
+                                <h3 className="text-2xl font-bold mb-4">Why Choose Cyash Contracting?</h3>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#c4a05f] flex-shrink-0 mt-1" />
+                                        <span>Expert craftsmanship with attention to detail</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#c4a05f] flex-shrink-0 mt-1" />
+                                        <span>Premium quality materials and finishes</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#c4a05f] flex-shrink-0 mt-1" />
+                                        <span>Timely project delivery and execution</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#c4a05f] flex-shrink-0 mt-1" />
+                                        <span>Trusted by leading businesses in Saudi Arabia</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
