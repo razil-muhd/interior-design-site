@@ -64,7 +64,7 @@ export function Navbar() {
                                     exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
                                     className="flex items-center gap-8"
                                 >
-                                    <nav className="hidden md:flex items-center gap-8 text-[#c4a05f] text-sm font-medium tracking-wide">
+                                    <nav className="hidden md:flex items-center gap-8 text-[#c4a05f] text-sm font-bold tracking-wide">
                                         {navLinks.map((link) => (
                                             <Link
                                                 key={link.name}

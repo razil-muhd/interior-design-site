@@ -44,46 +44,47 @@ export default function ServicesPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group flex flex-col h-full border border-gray-100"
+                            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 group flex flex-col h-full border border-gray-100 relative"
                         >
                             {/* Card Image */}
                             <div className="relative h-64 w-full overflow-hidden">
-                                <Link href={`/services/${service.id}`}>
-                                    <Image
-                                        src={service.image}
-                                        alt={service.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    {/* Overlay on hover */}
-                                    <div className="absolute inset-0 bg-[#0e2c53]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </Link>
+                                <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                {/* Overlay on hover */}
+                                <div className="absolute inset-0 bg-[#0e2c53]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
 
                             {/* Card Content */}
                             <div className="p-8 flex flex-col flex-grow relative">
                                 {/* Icon Badge */}
-                                <div className="absolute -top-6 right-8 bg-[#c4a05f] p-3 rounded-xl shadow-lg">
+                                <div className="absolute -top-6 right-8 bg-[#c4a05f] p-3 rounded-xl shadow-lg z-20">
                                     <service.icon className="w-6 h-6 text-[#0e2c53]" />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-[#0e2c53] mb-3 font-sans group-hover:text-[#c4a05f] transition-colors">
-                                    <Link href={`/services/${service.id}`}>
-                                        {service.label}
-                                    </Link>
+                                <h3 className="text-2xl font-bold text-[#0e2c53] mb-3 font-sans group-hover:text-[#c4a05f] transition-colors relative z-10">
+                                    {service.label}
                                 </h3>
 
-                                <p className="text-gray-500 mb-6 line-clamp-2 leading-relaxed flex-grow">
+                                <p className="text-gray-500 mb-6 line-clamp-2 leading-relaxed flex-grow relative z-10">
                                     {service.description}
                                 </p>
 
-                                <Link
-                                    href={`/services/${service.id}`}
-                                    className="inline-flex items-center gap-2 text-[#0e2c53] font-bold uppercase tracking-wider text-sm hover:translate-x-2 transition-transform duration-300"
-                                >
+                                <div className="inline-flex items-center gap-2 text-[#0e2c53] font-bold uppercase tracking-wider text-sm hover:translate-x-2 transition-transform duration-300 relative z-10">
                                     View More <ArrowRight className="w-4 h-4 text-[#c4a05f]" />
-                                </Link>
+                                </div>
+
                             </div>
+
+                            {/* Stretched Link for Full Card Clickability - Moved to Parent */}
+                            <Link
+                                href={`/services/${service.id}`}
+                                className="absolute inset-0 z-30"
+                                aria-label={`View details for ${service.label}`}
+                            />
                         </motion.div>
                     ))}
                 </div>

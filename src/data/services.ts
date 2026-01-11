@@ -16,7 +16,7 @@ export const servicesData = [
         label: "Turnkey Projects",
         title: "Best Interior Turnkey Company In Saudi Arabia", // Updated title from text
         description: "Complete design & build solutions from concept to handover.",
-        image: "/service_turnkey.png",
+        image: "/Turnkey1.jpg",
         icon: Home
     },
     {
@@ -80,7 +80,7 @@ export const servicesData = [
         label: "Commercial Interiors",
         title: "Commercial & Retail Interior Solutions",
         description: "Shopping malls, restaurants, showrooms, hospitals, and specialized fit-outs.",
-        image: "/service_turnkey.png", // Using turnkey as placeholder or if user has one
+        image: "/comm.jpg", // Using turnkey as placeholder or if user has one
         icon: Store
     }
 ];

@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
+import { usePathname } from "next/navigation";
+import { servicesData } from "@/data/services";
 
 export interface SubSection {
     title: string;
@@ -21,6 +23,8 @@ export interface ServiceContentProps {
 }
 
 export default function ServicePageLayout({ title, description, image, subSections, fullContent }: ServiceContentProps) {
+    const pathname = usePathname();
+
     return (
         <main className="bg-white min-h-screen">
             <Navbar />
@@ -54,17 +58,79 @@ export default function ServicePageLayout({ title, description, image, subSectio
                 </div>
             </section>
 
+            {/* Service Navigation Tabs */}
+            <div className="bg-white border-b border-gray-100 shadow-sm">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 py-6">
+                        {servicesData.map((service) => {
+                            const isActive = pathname?.includes(service.id);
+                            return (
+                                <Link
+                                    key={service.id}
+                                    href={`/services/${service.id}`}
+                                    className={`
+                                        text-xs md:text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-full transition-all duration-300 border
+                                        ${isActive
+                                            ? "bg-[#0e2c53] text-[#3b82f6] border-[#3b82f6] shadow-[0_0_15px_rgba(59,130,246,0.6)] animate-pulse"
+                                            : "bg-gray-50 text-gray-500 border-transparent hover:bg-gray-100 hover:text-[#0e2c53]"
+                                        }
+                                    `}
+                                >
+                                    {service.label}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+
             {/* Content Section */}
             <section className="py-20 lg:py-32 overflow-hidden">
                 <div className="container mx-auto px-6">
 
                     {/* Main Description */}
-                    <div className="max-w-4xl mx-auto mb-24 text-center">
-                        <h2 className="text-3xl font-bold text-[#0e2c53] mb-8 font-sans border-b-4 border-[#c4a05f] inline-block pb-2">
-                            Overview
-                        </h2>
-                        <div className="text-gray-600 text-xl leading-relaxed space-y-6 whitespace-pre-line">
-                            {description}
+                    {/* Main Description - Left Aligned with Accent */}
+                    {/* Redesigned Overview Section */}
+                    <div className="w-full mb-32 relative">
+                        {/* Decorative Background Elements */}
+                        <div className="absolute top-0 left-0 w-64 h-64 bg-[#c4a05f]/5 rounded-full blur-3xl -z-10 -translate-x-1/2 -translate-y-1/2" />
+                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0e2c53]/5 rounded-full blur-3xl -z-10 translate-x-1/3 translate-y-1/3" />
+
+                        <div className="bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-2 h-full bg-[#c4a05f]" />
+
+                            <div className="grid lg:grid-cols-12 gap-8 items-start">
+                                {/* Title Column */}
+                                <div className="lg:col-span-3">
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                    >
+                                        <h2 className="text-4xl md:text-5xl font-black text-[#0e2c53] font-sans leading-tight mb-4">
+                                            Service <br />
+                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a05f] to-[#b08e4d]">Overview</span>
+                                        </h2>
+                                        <div className="h-1.5 w-24 bg-[#0e2c53] rounded-full opacity-20" />
+                                    </motion.div>
+                                </div>
+
+                                {/* Content Column */}
+                                <div className="lg:col-span-9">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.2 }}
+                                        className="relative"
+                                    >
+                                        <span className="absolute -top-8 -left-6 text-8xl text-[#c4a05f]/10 font-serif leading-none select-none">"</span>
+                                        <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light relative z-10">
+                                            {description}
+                                        </p>
+                                    </motion.div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -74,13 +140,19 @@ export default function ServicePageLayout({ title, description, image, subSectio
 
                             {/* Text Content */}
                             <div className="w-full lg:w-1/2">
-                                <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#c4a05f]/10 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700" />
+                                <div className="space-y-6">
+                                    <div className="flex items-center gap-4 mb-2">
+                                        <div className="h-px flex-1 bg-gradient-to-r from-[#c4a05f] to-transparent max-w-[100px]" />
+                                        <span className="text-[#c4a05f] font-bold text-sm uppercase tracking-widest">
+                                            0{index + 1}
+                                        </span>
+                                    </div>
 
-                                    <h3 className="text-2xl md:text-3xl font-bold text-[#0e2c53] mb-6 font-sans relative z-10">
+                                    <h3 className="text-3xl md:text-4xl font-bold text-[#0e2c53] font-sans leading-tight">
                                         {section.title}
                                     </h3>
-                                    <div className="text-gray-600 leading-relaxed text-justify space-y-4 whitespace-pre-line relative z-10">
+
+                                    <div className="text-gray-600 text-lg leading-relaxed text-left whitespace-pre-line">
                                         {section.content}
                                     </div>
                                 </div>

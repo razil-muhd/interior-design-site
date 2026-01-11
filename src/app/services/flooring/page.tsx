@@ -14,7 +14,7 @@ Tile flooring, vinyl flooring, carpet flooring, parquet flooring, raised floorin
             title: "Tile flooring",
             content: `Do you want to know about the tile flooring company in Saudi Arabia? Know more about flooring you are at the right place
 One of the most common and popular types of flooring is flooring tiles. Marble, granite, vitrified tiles, porcelain tiles, and ceramic tiles are just a few of the various types of tiles available. These are normally chosen based on the institutions or house's character, construction process, and budget. Marble and granite gradually became the property of the wealthy, and they were heavier and thicker than the others. As a result, the used flooring will be colder than the remainder of the floor. Another type of tile that is often utilized is vitrified tiles. In addition, they have a higher level of finishing brilliance than the others. Their surface is durable and sturdy at the same time. This is one of the most popular types of tiles. Ceramic tiles are one of the most commonly utilized tile types for walls, while porcelain tiles are another option. This allows us to select from a wide range of categories and quality levels to meet the demands of the poor.`,
-            image: "/service_flooring.png"
+            image: "/F1.jpg"
         },
         {
             title: "Carpet flooring",
@@ -32,13 +32,13 @@ Now you are a little aware of things, and you can stop searching for vinyl floor
         {
             title: "Raised flooring",
             content: `This is a unique kind of flooring. They’re employed in a very different way from the others. They are only utilized to fully authenticate a building's or institution's requirements. The majority of the raised access flooring contractors fixed the height of the floor 12 inches to 6 feet off the ground. Raised Flooring has a variety of stories attached to it. Electric wires that flow through a particular location are sometimes employed as mechanical or plumbing utility lines or lecture stands. In clothes businesses, they're also employed as a trial stand. Raised flooring is frequently used just on the necessary elements of the inside of a room or structure. They can be found in apparel stores, hotels, restaurants, and shopping malls. Flooring can be made of a range of materials, including concrete, steel, and wood.`,
-            image: "/img_office.png"
+            image: "/F22.jpg"
         },
         {
             title: "Rubber flooring",
             content: `Rubber flooring is one of the most popular types of flooring. They are, however, mostly employed in gyms, play schools, playrooms, bathrooms, sports, and other indoor settings. This is a fantastic flooring option. The appearance of the rubber flooring will be doubled if it is installed on a very smooth surface. Because they are really lovely when viewed at the same level. Rubber flooring can be installed over concrete, however adhesive must be used between the floor and the concrete. Natural wood rubber or green synthetic materials are used to make rubber flooring. The rubber room, which is also a strong noise absorber, is completely silent. Rubber flooring, on the other hand, can withstand vater. As a result, they provide a better grip on wet surfaces than other types of flooring.
 Now you know about the rubber flooring what are you waiting for we are here to serve you are the best rubber flooring company in Saudi Arabia`,
-            image: "/img_construction.png"
+            image: "/RF.jpg"
         },
         {
             title: "Parquet flooring",

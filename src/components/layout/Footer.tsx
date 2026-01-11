@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Twitter, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { servicesData } from "@/data/services";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -93,19 +94,13 @@ export function Footer() {
                             Our Services
                         </h4>
                         <ul className="space-y-3 font-sans">
-                            {[
-                                { name: "Turnkey Projects", href: "/services/turnkey" },
-                                { name: "Joinery Works", href: "/services/joinery" },
-                                { name: "Flooring Solutions", href: "/services/flooring" },
-                                { name: "Ceiling Works", href: "/services/ceiling" },
-                                { name: "Partitions", href: "/services/partition" }
-                            ].map((item) => (
-                                <li key={item.name}>
+                            {servicesData.map((service) => (
+                                <li key={service.id}>
                                     <Link
-                                        href={item.href}
+                                        href={`/services/${service.id}`}
                                         className="text-gray-400 hover:text-[#c4a05f] transition-colors inline-block hover:translate-x-1 transition-transform"
                                     >
-                                        {item.name}
+                                        {service.label}
                                     </Link>
                                 </li>
                             ))}

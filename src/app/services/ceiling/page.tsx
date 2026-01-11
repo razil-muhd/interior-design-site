@@ -36,7 +36,7 @@ Aluminum ceilings also ensure the safety of the interior of the building by reta
         {
             title: "Glass",
             content: `Glass is a material that breaks easily and is transparent. Because of its transparency, the interior of a building with a glass ceiling will feel more beautiful and the interior more spacious. This is a luxurious ceiling style. Glass that does not transmit heat at all helps to keep the room cooler and prevents heat loss. With a proper lighting fixture on the glass ceiling, the ceiling can be adjusted to attract anyone who enters.`,
-            image: "/interior_ceiling.png"
+            image: "/C1.jpg"
         }
     ];
 

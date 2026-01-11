@@ -36,7 +36,7 @@ Some of the major key elements when designing a restaurant include space plannin
         {
             title: "Think like a guest",
             content: `When designing a restaurant, you should imagine yourself as a customer experiencing the space for the first time. The design should offer a sense of elegance, comfort, and a classic feel that allows guests to relax and truly enjoy their dining time. From welcoming lighting and comfortable seating to pleasing colors and thoughtful layout, every detail should enhance the overall experience. A well-designed restaurant makes guests feel valued, encourages them to stay longer, and leaves a lasting impression that brings them back again.`,
-            image: "/hero_couch.png"
+            image: "/T1.jpg"
         },
         {
             title: "Be true to your brand",
@@ -46,7 +46,7 @@ Some of the major key elements when designing a restaurant include space plannin
         {
             title: "Don't skimp on storage",
             content: `In a restaurant, efficient storage is essential for smooth daily operations. Most areas should be thoughtfully designed to accommodate adequate storage for ingredients, utensils, equipment, and supplies. When planning space utilization, storage requirements must be kept in mind from the beginning so that every area is used effectively. Proper space allocation helps staff manage storage easily, reduces clutter, and ensures a clean, organized, and efficient working environment.`,
-            image: "/iso_kitchen.png"
+            image: "/T2.jpg"
         },
         {
             title: "Little things matter",
@@ -69,7 +69,7 @@ Without CCTV no office can we work better CCTV is now an essential part of every
 To give a good atmospheric condition is an important factor when designing an office. The air conditioning system is used to condition the space inside the office that actually satisfies the employees because the body must be in a comfortable condition. There are different kinds of AC sir available like split AC, inverter AC, centralized AC, etc. Depending on the space the specification of the AC can be changed.
 
 Our specialization in commercial office design makes Cyash Contracting the most trustful interior designing company in Saudi Arabia. Our skilled engineers create versatile designs for your space which will full-fill your goal as per the customer requirement.`,
-            image: "/iso_office.png"
+            image: "/T3.jpg"
         }
     ];
 
