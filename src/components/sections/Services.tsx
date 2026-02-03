@@ -7,18 +7,32 @@ import { servicesData } from "@/data/services";
 
 export default function Services() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const scrollingDivRef = useRef<HTMLDivElement>(null);
+    const [travelDistance, setTravelDistance] = React.useState(0);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
     });
 
-    // Configuration for horizontal scroll
-    const ITEM_WIDTH = 450;
-    const GAP = 40;
-    const totalDistance = (servicesData.length - 1) * (ITEM_WIDTH + GAP);
+    React.useEffect(() => {
+        const calculateDistance = () => {
+            if (scrollingDivRef.current) {
+                const contentWidth = scrollingDivRef.current.scrollWidth;
+                const viewportWidth = window.innerWidth;
+                // Travel distance is how much we need to move the content left 
+                // to make the right edge of the content touch the right edge of the viewport
+                setTravelDistance(Math.max(0, contentWidth - viewportWidth));
+            }
+        };
+
+        calculateDistance();
+        window.addEventListener('resize', calculateDistance);
+        return () => window.removeEventListener('resize', calculateDistance);
+    }, []);
 
     // Transform vertical scroll to horizontal movement
-    const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance]);
+    const x = useTransform(scrollYProgress, [0, 1], [0, -travelDistance]);
 
     return (
         <section id="services" className="relative bg-[#f8f9fa] py-2">
@@ -44,10 +58,11 @@ export default function Services() {
             </div>
 
             {/* Horizontal Scroll Area */}
-            <div ref={containerRef} className="h-[400vh] relative">
+            <div ref={containerRef} className="h-[300vh] relative">
                 <div className="sticky top-0 h-screen flex items-center overflow-hidden">
                     <motion.div
-                        className="flex gap-10 px-6 md:px-[10vw]"
+                        ref={scrollingDivRef}
+                        className="flex gap-10 px-6 md:px-[10vw] w-fit"
                         style={{ x }}
                     >
                         {servicesData.map((service, index) => (
@@ -94,15 +109,12 @@ export default function Services() {
                                 </div>
                             </Link>
                         ))}
-
-                        {/* End Spacer */}
-                        <div className="flex-shrink-0 w-[10vw]" />
                     </motion.div>
                 </div>
             </div>
 
-            {/* Bottom Section Spacer - Smooth transition to next section */}
-            <div className="h-24 bg-[#f8f9fa]" />
+            {/* Bottom Section Spacer */}
+            <div className="h-12 bg-[#f8f9fa]" />
         </section>
     );
 }
