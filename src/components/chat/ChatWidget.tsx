@@ -5,6 +5,8 @@ import { MessageCircle, X, Send, Mic, Image as ImageIcon, Minimize2, Bot, Sparkl
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
+import { useChat } from "@/context/ChatContext";
+
 type Message = {
     id: string;
     text: string;
@@ -13,7 +15,7 @@ type Message = {
 };
 
 export default function ChatWidget() {
-    const [isOpen, setIsOpen] = useState(false);
+    const { isChatOpen: isOpen, setIsChatOpen: setIsOpen } = useChat();
     const [hasStarted, setHasStarted] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);

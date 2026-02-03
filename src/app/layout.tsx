@@ -27,6 +27,7 @@ import WhatsAppButton from "@/components/chat/WhatsAppButton";
 import { SplashScreen } from "@/components/layout/SplashScreen";
 
 import { SplashProvider } from "@/context/SplashContext";
+import { ChatProvider } from "@/context/ChatContext";
 
 export default function RootLayout({
   children,
@@ -39,12 +40,14 @@ export default function RootLayout({
         className={`${poppins.variable} ${playfairDisplay.variable} antialiased`}
       >
         <SplashProvider>
-          <SplashScreen />
-          <Navbar />
-          {children}
-          <ChatWidget />
-          <WhatsAppButton />
-          <Footer />
+          <ChatProvider>
+            <SplashScreen />
+            <Navbar />
+            {children}
+            <ChatWidget />
+            <WhatsAppButton />
+            <Footer />
+          </ChatProvider>
         </SplashProvider>
       </body>
     </html>
