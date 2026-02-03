@@ -9,8 +9,7 @@ import { servicesData } from "@/data/services";
 
 export default function ServicesPage() {
     return (
-        <main className="bg-gray-50 min-h-screen overflow-x-hidden">
-            <Navbar />
+        <main className="bg-gray-50 min-h-screen overflow-x-hidden pt-28">
 
             {/* Header Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-[#0e2c53] pt-24">
@@ -35,7 +34,7 @@ export default function ServicesPage() {
             </section>
 
             {/* Services Grid Section - New Card Design */}
-            <section className="py-20 lg:py-32 container mx-auto px-6 md:px-12">
+            <section className="py-12 md:py-20 lg:py-32 container mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {servicesData.map((service, index) => (
                         <motion.div
@@ -91,7 +90,7 @@ export default function ServicesPage() {
             </section>
 
             {/* CTA Footer */}
-            <section className="bg-[#0e2c53] py-20 text-center">
+            <section className="bg-[#0e2c53] py-16 md:py-20 text-center">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl font-bold text-white mb-8">Ready to Transform Your Space?</h2>
                     <Link

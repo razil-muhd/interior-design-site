@@ -26,8 +26,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
     const pathname = usePathname();
 
     return (
-        <main className="bg-white min-h-screen">
-            <Navbar />
+        <main className="bg-white min-h-screen pt-24 md:pt-0">
 
             {/* Hero Section - Enhanced Design */}
             <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-[#0e2c53]">
@@ -136,7 +135,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
 
                     {/* Sub Sections - Zig Zag Layout */}
                     {subSections && subSections.map((section, index) => (
-                        <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center mb-20 lg:mb-32`}>
+                        <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 md:gap-12 items-center mb-12 md:mb-20 lg:mb-32`}>
 
                             {/* Text Content */}
                             <div className="w-full lg:w-1/2">
@@ -193,7 +192,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
                     )}
 
                     {/* CTA */}
-                    <div className="mt-20 bg-[#0e2c53] p-10 rounded-3xl text-center shadow-2xl relative overflow-hidden">
+                    <div className="mt-12 md:mt-20 bg-[#0e2c53] p-8 md:p-10 rounded-3xl text-center shadow-2xl relative overflow-hidden">
                         <div className="absolute inset-0 opacity-10"
                             style={{ backgroundImage: 'radial-gradient(#c4a05f 1px, transparent 1px)', backgroundSize: '20px 20px' }}
                         />
