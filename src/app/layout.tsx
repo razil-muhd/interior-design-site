@@ -22,6 +22,11 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 import ChatWidget from "@/components/chat/ChatWidget";
+import WhatsAppButton from "@/components/chat/WhatsAppButton";
+
+import { SplashScreen } from "@/components/layout/SplashScreen";
+
+import { SplashProvider } from "@/context/SplashContext";
 
 export default function RootLayout({
   children,
@@ -33,10 +38,14 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${playfairDisplay.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <ChatWidget />
-        <Footer />
+        <SplashProvider>
+          <SplashScreen />
+          <Navbar />
+          {children}
+          <ChatWidget />
+          <WhatsAppButton />
+          <Footer />
+        </SplashProvider>
       </body>
     </html>
   );

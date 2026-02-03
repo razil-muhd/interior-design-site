@@ -33,7 +33,7 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
 
 const About = () => {
     return (
-        <section className="relative z-30 mt-12 lg:-mt-20 pb-20">
+        <section className="relative z-30 mt-20 lg:mt-12 pb-20">
             <div className="container mx-auto px-4 md:px-0 max-w-6xl">
 
                 <div className="bg-white border-b border-gray-200 p-8 md:p-16 w-full relative overflow-hidden">

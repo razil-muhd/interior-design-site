@@ -50,293 +50,109 @@ export default function ChatWidget() {
 
     // Knowledge Base Data - Comprehensive Training
     const knowledgeBase = [
-        // --- Services (General) - High Priority ---
+        // --- Flooring ---
         {
-            keywords: ["service", "what do you do", "offer", "work", "specializ", "capabilities", "providing", "provide"],
-            response: "We offer a comprehensive range of interior services including:\n• Turnkey Projects (Design & Build)\n• Custom Joinery & Manufacturing\n• Flooring Solutions (Marble, Parquet, Tiles)\n• Ceiling Works (Gypsum, Metal, Acoustic)\n• Partitions (Glass, Gypsum)\n• Wall Cladding & Decor\n• Handrails & Metal Works\n• Curtains & Blinds\n• MEP & HVAC Services"
+            keywords: ["flooring", "floor", "tiles", "carpet", "vinyl", "parquet"],
+            response: "We offer several high-quality flooring options tailored to your needs:\n• Tile (Marble, Granite, Vitrified, Porcelain)\n• Carpet (Luxury, Heat-retaining, Acoustic)\n• Vinyl (Cost-effective, WPC/SPC waterproof models)\n• Raised Access (12\" to 6' height for data/MEP utilities)\n• Rubber (Safe, High-grip for gyms/schools)\n• Parquet (Pure wood or Moisture-resistant Engineered wood)"
+        },
+        {
+            keywords: ["marble", "granite", "vitrified", "porcelain", "ceramic"],
+            response: "Our tile solutions range from luxury Marble and Granite for a high-end look to Vitrified and Porcelain tiles for superior durability. Ceramic tiles are also available as a cost-effective choice for walls."
+        },
+        {
+            keywords: ["carpet", "rug", "soft floor"],
+            response: "Carpet flooring is perfect for offices and homes for noise absorption. Our carpets are heat-retaining and provide a cushioning effect that protects fragile objects."
+        },
+        {
+            keywords: ["vinyl", "wpc", "spc", "waterproof"],
+            response: "Vinyl is a popular budget-friendly choice. We specificially recommend WPC and SPC models for areas with water access as they are completely waterproof."
+        },
+        {
+            keywords: ["raised flooring", "access floor", "server room"],
+            response: "Raised flooring is essential for server rooms and modern offices to hide cables. We can fix heights from 12 inches up to 6 feet, using concrete, steel, or wood panels."
         },
 
-        // --- General Greetings (Lower Priority or Strict) ---
+        // --- Ceiling ---
         {
-            keywords: ["hello", "good morning", "good afternoon", "greetings", "hey"], // Removed "hi", "hey" to avoid partial matches like "which"
-            response: "Hello! Welcome to Cyash Contracting. I'm Windoo, your AI assistant. Feel free to ask about our services, projects, or how to get in touch!"
-        },
-        {
-            keywords: ["who are you", "what is this", "are you a bot", "are you ai"],
-            response: "I am Windoo, the automated assistant for Cyash Contracting. I'm here to help you navigate our services and answer questions about our company."
-        },
-        {
-            keywords: ["thank", "thanks", "cool", "great", "ok"],
-            response: "You're welcome! Let me know if you need anything else."
+            keywords: ["ceiling", "roof", "gypsum", "pop"],
+            response: "Our ceiling specialists work with:\n• Gypsum (Most popular, Fire-retardant)\n• Aluminum (Moisture/Termite resistant)\n• Wooden (Teak/MDF, Luxurious look)\n• Celotex (Quick, Heat-retaining)\n• Glass (Transparent, Spacious feel)\n• PVC/POP (Cost-effective options)"
         },
 
-        // --- Company Info ---
+        // --- Cladding & Facade ---
         {
-            keywords: ["about", "company", "cyash", "history", "who is cyash"],
-            response: "Cyash Contracting is a leading interior service provider in Saudi Arabia with over 30 years of success. We specialize in turn-key Workspace Design and Interior Design Fit-out works, known for our dedication to crafting quality interiors."
-        },
-        {
-            keywords: ["experience", "years", "long", "old"],
-            response: "We have over 30 years of success in the industry, executing high-quality projects across the Kingdom."
-        },
-        {
-            keywords: ["stats", "numbers", "projects", "completed"],
-            response: "We have completed over 250 projects and have a team of more than 100 skilled experts dedicated to excellence."
-        },
-        {
-            keywords: ["location", "where", "address", "located", "office"],
-            response: "We are located at Level 24, Kingdom Center Tower, Riyadh, Saudi Arabia."
-        },
-        {
-            keywords: ["contact", "phone", "email", "call", "reach", "number"],
-            response: "You can reach us at:\n📞 +966 50 123 4567\n✉️ info@cyashcontracting.com\nWe look forward to hearing from you!"
+            keywords: ["cladding", "facade", "acp", "vitracore"],
+            response: "We provide various exterior and interior cladding: Aluminum (ACP/Vitracore G2), Glass (Tempered/Vitrified), Stone (Wet/Dry attachment), and Gypsum wall skins."
         },
 
-        // --- Strategic & Vision ---
+        // --- Partition ---
         {
-            keywords: ["vision 2030", "2030", "saudi vision", "future"],
-            response: "We are deeply committed to Saudi Vision 2030. We contribute to the Kingdom's transformation by fostering sustainable development, empowering local talent, and building world-class infrastructure that diversifies the economy. \n\nOur projects align with the Vision's goal of creating a vibrant society and a thriving economy. You can learn more about this historic transformation at the official website: https://www.vision2030.gov.sa/"
-        },
-        {
-            keywords: ["mission", "goal", "aim"],
-            response: "Our mission is to deliver exceptional interior solutions that blend luxury, functionality, and timeless design, ensuring every space we touch inspires success."
-        },
-        {
-            keywords: ["vision", "dream"],
-            response: "Our vision is to be the premier choice for luxury interior contracting in the region, setting new standards for quality and innovation."
-        },
-        {
-            keywords: ["values", "standards", "quality"],
-            response: "We operate with core values of Integrity, Quality, Innovation, and Client-Centricity. We don't just build spaces; we build relationships based on trust."
+            keywords: ["partition", "divider", "glass wall", "office wall"],
+            response: "Divide your space with style: Glass (Frosted/Tempered), Wooden (Fixed/Moveable), Drywall (Fire-retardant), or Movable partitions for flexible layouts."
         },
 
-        // --- Services (Specific) ---
+        // --- Joinery & Furniture ---
         {
-            keywords: ["turnkey", "turn key", "end to end", "design and build"],
-            response: "Our Turnkey Projects are our flagship service. We take full responsibility from initial concept validation to final handover. This includes space planning, 3D visualization, material procurement, construction, project management, and quality control. We ensure your project is delivered on time, within budget, and to the highest standards."
-        },
-        {
-            keywords: ["joinery", "wood", "carpentry", "cabinet", "furniture", "manufacturing"],
-            response: "We operate a dedicated joinery facility in Saudi Arabia, allowing us to produce high-end custom woodwork. From bespoke cabinets and wardrobes to intricate wall paneling and reception desks, our expert craftsmen bring unique designs to life with precision."
-        },
-        {
-            keywords: ["flooring", "floor", "marble", "tile", "parquet", "carpet"],
-            response: "We provide premium flooring solutions tailored to your space's traffic and aesthetic needs. This includes installing luxury marble, granite, ceramic tiles, solid wood parquet, and heavy-duty office carpet tiles."
-        },
-        {
-            keywords: ["ceiling", "gypsum", "lighting", "overhead"],
-            response: "We specialize in artistic and functional  ceilings. Whether you need decorative gypsum designs, industrial metal grid ceilings, or acoustic solutions for noise control, we integrate them seamlessly with modern lighting."
-        },
-        {
-            keywords: ["partition", "divider", "glass", "wall", "separate"],
-            response: "Our partition systems optimize space without compromising style. We offer frameless glass partitions for open-feel offices, gypsum walls for privacy, and acoustic barriers. We can customize dividers to suit any office layout."
-        },
-        {
-            keywords: ["cladding", "panel", "3d", "feature wall", "stone wall"],
-            response: "Add texture and character to your space with our Wall Cladding services. We use natural stone, wood veneers, and 3D architectural panels to create striking feature walls and exterior facades that make a lasting impression."
-        },
-        {
-            keywords: ["handrail", "stair", "railing", "balustrade", "stainless"],
-            response: "Safety meets style with our custom Handrails. We design and install modern railing systems using tempered glass, stainless steel, and polished wood to complement your interior architecture, specifically for staircases and balconies."
-        },
-        {
-            keywords: ["curtain", "blind", "window", "motorized", "fabric"],
-            response: "Complete your space with luxury Curtains & Blinds. We supply and install blackout curtains, sheer fabrics, roller blinds, and fully motorized smart systems for modern offices and homes."
-        },
-        {
-            keywords: ["mep", "hvac", "electric", "plumbing", "ac", "air condition"],
-            response: "We have specific expertise in MEP (Mechanical, Electrical, and Plumbing) and HVAC. Our engineers handle all technical aspects to ensure your office is fully functional, safe, and comfortable. This allows us to truly be a one-stop Turnkey provider."
-        },
-        // --- Turnkey Specifics ---
-        {
-            keywords: ["electrical", "wiring", "cctv", "networking", "lan"],
-            response: "Our turnkey solutions include full electrical and networking setup. We handle commercial installations, LAN networking for offices, CCTV security integration, and ensuring all power systems support your appliances and HVAC needs."
-        },
-        {
-            keywords: ["guest", "customer experience", "hospitality design"],
-            response: "We follow the 'Think like a guest' philosophy. For restaurants and hotels, we design for elegance and comfort—from lighting to seating—to ensure guests feel valued and want to return."
-        },
-        {
-            keywords: ["brand", "identity", "story"],
-            response: "We believe in being true to your brand. Your interior design will visually express your unique identity through aligned colors, materials, and layouts, creating a strong connection with your customers."
-        },
-        {
-            keywords: ["storage", "kitchen", "pantry"],
-            response: "We never skimp on storage. Essential for smooth operations, we thoughtfully plan adequate storage for ingredients, equipment, and supplies to ensure a clean, organized, and efficient workspace or kitchen."
-        },
-        {
-            keywords: ["showroom", "retail", "display"],
-            response: "For showrooms, it's not just visual—it's about access. We design layouts that optimize product showcasing and customer flow, ensuring your space effectively drives sales and highlights your brand."
-        },
-        {
-            keywords: ["ac", "air condition", "ventilation", "cooling"],
-            response: "Atmospheric condition is crucial. We install various AC systems (Split, Inverter, Centralized) tailored to your space to ensure a comfortable environment for staff and customers."
+            keywords: ["joinery", "furniture", "woodwork", "cabinet", "reception"],
+            response: "Our in-house joinery facility crafts bespoke furniture: Reception counters, Kitchen/Pantry tops (Corian/Granite), Exhibition stands, and custom Office desks."
         },
 
-
-        // --- Joinery & Fit-out Specifics ---
+        // --- Turnkey & MEP ---
         {
-            keywords: ["reception", "desk", "counter", "lobby", "welcome"],
-            response: "Reception counters are the public face of your firm. We craft welcoming reception desks using MDF, glass, and hardwood to match your company's aesthetic and workflow, ensuring a lasting first impression."
-        },
-        {
-            keywords: ["display rack", "rack", "showroom shelf", "retail shelf"],
-            response: "Display racks are the backbone of retail. We design and manufacture custom racks from glass, wood, gypsum, and MDF to effectively showcase your products and attract business."
-        },
-        {
-            keywords: ["exhibition", "stand", "booth", "event display", "pop-up"],
-            response: "We create captivating exhibition stands, including pop-up displays and modular custom stands. Our designs help you stand out in exhibition halls and promote your products effectively."
-        },
-        {
-            keywords: ["Korian", "countertop", "granite", "kitchen counter", "pantry top"],
-            response: "We specialize in Corian and Korean countertops, which offer seamless edges and smooth finishes. While granite is robust, Corian provides excellent durability and a wide range of fade-resistant colors."
-        },
-        {
-            keywords: ["display stand", "brochure stand", "magazine rack"],
-            response: "Our custom display stands are perfect for reception areas to hold brochures and magazines. Available in various materials and finishes, they serve both functional and aesthetic purposes."
+            keywords: ["turnkey", "full project", "mep", "hvac", "electrical"],
+            response: "Our Turnkey solution covers everything: Design, Electrical (Phase 1-3), Networking, CCTV, HVAC (Centralized), and complete furnishing. We manage the entire project from concept to handover."
         },
 
-
-        // --- Flooring Specifics ---
+        // --- Healthcare & Medical ---
         {
-            keywords: ["tile flooring", "marble floor", "granite floor", "ceramic tile", "porcelain"],
-            response: "We offer various tile flooring options including Marble and Granite for a luxurious, cool feel, as well as durable Vitrified and Ceramic tiles suitable for high-traffic areas."
-        },
-        {
-            keywords: ["carpet flooring", "office carpet", "carpet tile"],
-            response: "Carpet flooring is excellent for noise absorption and retaining warmth. It provides a soft, professional feel perfect for offices and homes, available in various grades and designs."
-        },
-        {
-            keywords: ["vinyl flooring", "wpc", "spc", "pvc floor"],
-            response: "Vinyl flooring is a cost-effective, water-resistant solution. We install WPC and SPC models which are durable, easy to set up, and ideal for damp areas like bathrooms or kitchens."
-        },
-        {
-            keywords: ["raised flooring", "access floor", "server room floor"],
-            response: "Raised flooring is essential for server rooms and modern offices to hide electrical and data cabling. We install systems raised 12 inches to 6 feet to manage utilities efficiently."
-        },
-        {
-            keywords: ["rubber flooring", "gym floor", "safety floor"],
-            response: "Rubber flooring is the top choice for gyms, play schools, and sports areas due to its soft cushioning, non-slip grip, and noise absorption properties."
-        },
-        {
-            keywords: ["parquet flooring", "wooden floor", "engineered wood"],
-            response: "Parquet flooring offers a timeless, retro luxury. We provide both solid wood and engineered wood options that bring warmth and elegance to high-end homes and hotels."
+            keywords: ["hospital", "clinic", "pharmacy", "medical"],
+            response: "We specialize in Healthcare fit-outs using medical-grade, non-toxic materials, specialized lighting, and designs that promote healing and hygiene."
         },
 
-        // --- Ceiling Specifics ---
+        // --- Retail & Showrooms ---
         {
-            keywords: ["gypsum ceiling", "false ceiling", "pop ceiling"],
-            response: "Gypsum is our most popular modern ceiling solution. It's fire-resistant, excellent for thermal insulation, and allows for versatile, artistic designs with integrated lighting."
-        },
-        {
-            keywords: ["aluminum ceiling", "metal ceiling"],
-            response: "Aluminum ceilings are lightweight, durable, and moisture-resistant. They are ideal for commercial spaces requiring a clean, industrial look or specific hygiene standards."
-        },
-        {
-            keywords: ["wooden ceiling", "timber ceiling"],
-            response: "Wooden ceilings add unmatched luxury and warmth. Using Teak or MDF, they offer great natural insulation and sound suppression, perfect for upscale offices and residences."
-        },
-        {
-            keywords: ["glass ceiling", "skylight"],
-            response: "Glass ceilings create a spacious, transparent feel, constructing a connection with the outdoors. We use heat-resistant glass to allow natural light while keeping the interior cool."
+            keywords: ["showroom", "retail", "mall", "shop"],
+            response: "For showrooms and malls, we prioritize 'Visual & Access'. We design layouts with high product visibility and strategic lighting to enhance the customer experience."
         },
 
-        // --- Partition Specifics ---
+        // --- General & Contact ---
         {
-            keywords: ["glass partition", "glass wall", "office glass"],
-            response: "Glass partitions maintain an open, spacious office atmosphere while providing necessary separation. We offer frosted or tempered glass options with aluminum or frameless fittings."
+            keywords: ["service", "what do you do", "offer"],
+            response: "Cyash Contracting offers a total interior solution: Turnkey Projects, Joinery, Flooring, Ceilings, Partitions, Cladding, Handrails, and specialized Fit-outs for Offices, Hospitals, and Restaurants."
         },
         {
-            keywords: ["drywall", "gypsum partition", "dry wall"],
-            response: "Drywall partitions (Gypsum) are a fast, fire-resistant, and cost-effective way to divide space. They are sleek, lightweight, and offer excellent acoustic privacy."
+            keywords: ["contact", "phone", "email", "call", "whatsapp"],
+            response: "You can reach us at +966 50 123 4567 or info@cyashcontracting.com. We also have a dedicated 'Send to WhatsApp' button on our Contact page!"
         },
         {
-            keywords: ["movable partition", "folding wall", "sliding wall"],
-            response: "Movable partitions offer ultimate flexibility. Convert a large hall into smaller meeting rooms specifically when needed with our sliding and folding wall systems."
-        },
-
-        // --- Cladding Specifics ---
-        {
-            keywords: ["acp", "aluminum cladding", "composite panel"],
-            response: "Aluminum Composite Panels (ACP) protect your building's exterior while adding a modern aesthetic. We use high-quality, fire-retardant panels (like Vitracore G2) in various thicknesses."
-        },
-        {
-            keywords: ["stone cladding", "exterior stone"],
-            response: "Stone cladding ensures durability and high insulation. While labor-intensive, it increases property value, offers fire resistance, and lasts 30-60 years with minimal maintenance."
-        },
-        {
-            keywords: ["glass cladding", "glazing", "facade glass"],
-            response: "Glass cladding improves weather resistance and thermal insulation. We use tempered or vitrified glass to give your building a stunning, modern exterior facade."
-        },
-
-        // --- Handrail & Curtain Specifics ---
-        {
-            keywords: ["glass handrail", "glass railing", "stair rail"],
-            response: "Glass handrails provide safety without blocking views. They are elegant, modern, and often paired with stainless steel for a premium finish on balconies and staircases."
-        },
-        {
-            keywords: ["steel handrail", "stainless steel rail"],
-            response: "Stainless steel handrails are durable, cost-effective, and versatile. They are the most popular choice for commercial buildings due to their strength and low maintenance."
-        },
-        {
-            keywords: ["motorized curtain", "roller blind", "office blind"],
-            response: "We supply manual and motorized roller blinds perfect for offices. They offer excellent insulation, light control, and a sleek modern appearance."
-        },
-        {
-            keywords: ["fabric curtain", "blackout", "sheer"],
-            response: "From sheer curtains for light filtration to heavy blackout fabrics for privacy, we offer a wide range of custom-tailored curtains to suit any interior luxuriously."
-        },
-
-        // --- Commercial Interior Specifics ---
-        {
-            keywords: ["hospital interior", "clinic design", "medical fitout"],
-            response: "Our healthcare interiors prioritize hygiene and tranquility. We use non-Red List materials and specialized lighting to create positive healing environments for patients."
-        },
-        {
-            keywords: ["pharmacy design", "medical shop"],
-            response: "Pharmacy design focuses on efficient workflow and organized medicine display. We ensure clean, sanitary environments with easy access for staff and customers."
-        },
-        {
-            keywords: ["restaurant design", "cafe interior", "dining space"],
-            response: "For restaurants and cafes, we create immersive ambiences. From kitchen workflow to customer seating, we design spaces that enhance the dining experience and encourage return visits."
-        },
-        {
-            keywords: ["showroom interior", "retail design", "shop fitout"],
-            response: "A showroom's design directly impacts sales. We create elegant product displays and effective lighting schemes that highlight your merchandise and elevate your brand value."
-        },
-
-        // --- Sectors ---
-        {
-            keywords: ["office", "workspace", "corporate"],
-            response: "Offices are our specialty! We create flexible, modern workspaces that enhance productivity and reflect your brand identity. From open layouts to executive suites, we do it all."
-        },
-        {
-            keywords: ["home", "residen", "villa", "apartment", "house"],
-            response: "Yes, we serve private residences. We bring luxury and comfort to your home with our bespoke design and fit-out services, turning your personal vision into a reality."
-        },
-        {
-            keywords: ["restaurant", "cafe", "hospital", "clinic", "showroom", "retail"],
-            response: "We serve a variety of commercial sectors including Restaurants, Clinics, Hospitals, and retail Showrooms. We understand the specific operational and regulatory needs of these spaces."
+            keywords: ["location", "address", "riyadh"],
+            response: "Our office is located at Level 24, Kingdom Center Tower, Riyadh, Saudi Arabia."
         }
     ];
 
     const findBestResponse = (input: string) => {
         const lowerInput = input.toLowerCase();
 
-        // 1. Direct Keyword Match
+        // Improved matching: Look for keyword matches within the input words
+        const inputWords = lowerInput.split(/\W+/);
+
         for (const item of knowledgeBase) {
-            if (item.keywords.some(keyword => lowerInput.includes(keyword))) {
-                return item.response;
-            }
+            const isMatch = item.keywords.some(keyword => {
+                const keywordWords = keyword.split(/\W+/);
+                // Direct match or all words in a multi-word keyword are present
+                return lowerInput.includes(keyword) ||
+                    keywordWords.every(kWord => inputWords.includes(kWord));
+            });
+
+            if (isMatch) return item.response;
         }
 
-        // 2. Generic Fallbacks for recognized intents regarding "Help" or "Price"
-        if (lowerInput.includes("price") || lowerInput.includes("cost") || lowerInput.includes("quote")) {
-            return "Since every project is unique, we provide custom quotes based on your specific needs. Please contact us at +966 50 123 4567 to schedule a free consultation.";
+        // Price/Quote Intent
+        if (lowerInput.includes("price") || lowerInput.includes("cost") || lowerInput.includes("how much")) {
+            return "As every project is unique, we offer customized pricing. Please contact us at +966 50 123 4567 or use our contact form for a personalized quote.";
         }
 
-        // 3. Helpful Default Fallback (for unknown services or general queries)
-        return "That's an interesting request! While I don't have specific details on that right now, we offer a very flexible range of services and may be able to help you with that as well. \n\nPlease contact our expert team directly at +966 50 123 4567 — we'd love to discuss how we can make it happen!";
+        // Global Fallback
+        return "I understand you're interested in our services! We specialize in high-end Turnkey Interiors, Flooring, and specialized Fit-outs in Saudi Arabia. \n\nPlease call us at +966 50 123 4567 — our experts would love to discuss your specific project!";
     };
 
     const handleSendMessage = (e?: React.FormEvent) => {
@@ -376,8 +192,12 @@ export default function ChatWidget() {
                             </div>
 
                             <div className="flex items-center gap-4 relative z-10">
-                                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20 shadow-inner backdrop-blur-md">
-                                    <Bot className="text-[#c4a05f]" size={28} />
+                                <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center border border-white/30 shadow-inner backdrop-blur-md overflow-hidden p-1.5">
+                                    <img
+                                        src="/windooface.png"
+                                        alt="Windoo"
+                                        className="w-full h-full object-contain"
+                                    />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-xl leading-tight">Windoo AI</h3>
@@ -468,8 +288,12 @@ export default function ChatWidget() {
                                                     }`}
                                             >
                                                 {msg.sender === 'bot' && (
-                                                    <div className="absolute -left-2 -top-2 w-6 h-6 rounded-full bg-[#c4a05f] flex items-center justify-center border-2 border-white shadow-sm">
-                                                        <Bot size={12} className="text-white" />
+                                                    <div className="absolute -left-2 -top-2 w-7 h-7 rounded-full bg-white flex items-center justify-center border-2 border-white shadow-md overflow-hidden p-0.5">
+                                                        <img
+                                                            src="/windooface.png"
+                                                            alt="Windoo"
+                                                            className="w-full h-full object-contain"
+                                                        />
                                                     </div>
                                                 )}
                                                 <p className="leading-relaxed whitespace-pre-wrap">{msg.text}</p>
@@ -527,29 +351,44 @@ export default function ChatWidget() {
                 )}
             </AnimatePresence>
 
-            {/* Premium Toggle Button */}
+            {/* Premium Side Trigger */}
             {!isOpen && (
-                <motion.button
-                    onClick={toggleChat}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#0e2c53] text-white rounded-full shadow-[0_10px_40px_rgba(14,44,83,0.3)] flex items-center gap-3 px-6 py-4 transition-all group border border-white/10 overflow-hidden relative"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#c4a05f]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    <div className="relative z-10 flex items-center gap-3">
-                        <div className="bg-white/10 p-2 rounded-full">
-                            <Bot size={24} className="text-[#c4a05f]" />
+                <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] flex items-center group cursor-pointer" onClick={toggleChat}>
+                    {/* Speech Bubble */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1, duration: 0.5 }}
+                        className="mr-2 relative"
+                    >
+                        <div className="bg-white px-4 py-3 rounded-2xl shadow-xl border border-[#c4a05f]/30 whitespace-nowrap">
+                            <p className="text-[#0e2c53] text-[13px] font-bold">
+                                Hi! I am <span className="text-[#c4a05f]">Windoo</span>... <br />
+                                click me i will help u
+                            </p>
+                            {/* Bubble Tail */}
+                            <div className="absolute right-[-8px] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-r border-t border-[#c4a05f]/30 rotate-45" />
                         </div>
-                        <span className="font-bold tracking-wide pr-1">Ask Windoo</span>
-                        <span className="flex h-2 w-2 relative">
+                    </motion.div>
+
+                    {/* Windoo Image */}
+                    <motion.div
+                        whileHover={{ x: -15, scale: 1.05 }}
+                        className="relative w-32 h-40 md:w-40 md:h-48"
+                    >
+                        <Image
+                            src="/windoo.png"
+                            alt="Windoo"
+                            fill
+                            className="object-contain drop-shadow-2xl"
+                        />
+                        {/* Status Indicator */}
+                        <div className="absolute top-4 left-4 flex h-4 w-4">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                    </div>
-                </motion.button>
+                            <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white"></span>
+                        </div>
+                    </motion.div>
+                </div>
             )}
         </div>
     );

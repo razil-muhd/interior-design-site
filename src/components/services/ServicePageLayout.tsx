@@ -71,7 +71,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
                                     className={`
                                         text-xs md:text-sm font-bold uppercase tracking-wider px-5 py-2.5 rounded-full transition-all duration-300 border
                                         ${isActive
-                                            ? "bg-[#0e2c53] text-[#3b82f6] border-[#3b82f6] shadow-[0_0_15px_rgba(59,130,246,0.6)] animate-pulse"
+                                            ? "bg-[#0e2c53] text-[#c4a05f] border-[#c4a05f] shadow-[0_0_20px_rgba(196,160,95,0.3)]"
                                             : "bg-gray-50 text-gray-500 border-transparent hover:bg-gray-100 hover:text-[#0e2c53]"
                                         }
                                     `}
@@ -107,7 +107,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                     >
-                                        <h2 className="text-4xl md:text-5xl font-black text-[#0e2c53] font-sans leading-tight mb-4">
+                                        <h2 className="text-4xl md:text-5xl font-black text-[#0e2c53] font-sans leading-tight mb-4 text-left">
                                             Service <br />
                                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a05f] to-[#b08e4d]">Overview</span>
                                         </h2>
@@ -125,9 +125,9 @@ export default function ServicePageLayout({ title, description, image, subSectio
                                         className="relative"
                                     >
                                         <span className="absolute -top-8 -left-6 text-8xl text-[#c4a05f]/10 font-serif leading-none select-none">"</span>
-                                        <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light relative z-10">
+                                        <div className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light relative z-10 text-left whitespace-pre-line">
                                             {description}
-                                        </p>
+                                        </div>
                                     </motion.div>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
                                         </span>
                                     </div>
 
-                                    <h3 className="text-3xl md:text-4xl font-bold text-[#0e2c53] font-sans leading-tight">
+                                    <h3 className="text-3xl md:text-4xl font-bold text-[#0e2c53] font-sans leading-tight text-left">
                                         {section.title}
                                     </h3>
 
@@ -202,7 +202,7 @@ export default function ServicePageLayout({ title, description, image, subSectio
                             Ready to transform your space? Contact our expert team for a consultation.
                         </p>
                         <Link
-                            href="/#contact"
+                            href="/contact"
                             className="inline-block bg-[#c4a05f] text-[#0e2c53] px-10 py-4 rounded-full font-bold hover:bg-white transition-all shadow-lg transform hover:-translate-y-1 relative z-10"
                         >
                             Get in Touch
