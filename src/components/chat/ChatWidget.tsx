@@ -356,7 +356,7 @@ export default function ChatWidget() {
             {/* Premium Side Trigger */}
             {!isOpen && (
                 <div
-                    className="fixed right-[-10px] md:right-0 top-32 md:top-1/2 md:-translate-y-1/2 z-[100] flex items-center group cursor-pointer transition-all duration-300"
+                    className="fixed left-1/2 -translate-x-1/2 md:left-auto md:right-0 top-24 md:top-1/2 md:-translate-y-1/2 z-[100] flex items-center group cursor-pointer transition-all duration-300"
                     onClick={toggleChat}
                 >
                     {/* Speech Bubble - Hidden on small mobile */}
