@@ -14,16 +14,17 @@ export default function Services() {
 
     // Configuration for horizontal scroll
     const ITEM_WIDTH = 450;
+    const MOBILE_ITEM_WIDTH = 300;
     const GAP = 40;
-    const totalDistance = (servicesData.length - 1) * (ITEM_WIDTH + GAP);
 
     // Transform vertical scroll to horizontal movement
-    const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance]);
+    // We use a slightly different approach to ensure it stops accurately
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(servicesData.length - 1) * 80}%`]);
 
     return (
-        <section id="services" className="relative bg-[#f8f9fa] py-2">
+        <section id="services" className="relative bg-[#f8f9fa] py-12">
             {/* Header Content - Before Scroll */}
-            <div className="container mx-auto px-6 md:px-12 pt-24 pb-12">
+            <div className="container mx-auto px-6 md:px-12 pt-12 pb-12">
                 <div className="max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -44,7 +45,7 @@ export default function Services() {
             </div>
 
             {/* Horizontal Scroll Area */}
-            <div ref={containerRef} className="h-[400vh] relative">
+            <div ref={containerRef} className="h-[250vh] relative">
                 <div className="sticky top-0 h-screen flex items-center overflow-hidden">
                     <motion.div
                         className="flex gap-10 px-6 md:px-[10vw]"
@@ -94,15 +95,9 @@ export default function Services() {
                                 </div>
                             </Link>
                         ))}
-
-                        {/* End Spacer */}
-                        <div className="flex-shrink-0 w-[10vw]" />
                     </motion.div>
                 </div>
             </div>
-
-            {/* Bottom Section Spacer - Smooth transition to next section */}
-            <div className="h-24 bg-[#f8f9fa]" />
         </section>
     );
 }
