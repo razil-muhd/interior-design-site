@@ -18,7 +18,7 @@ export function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full z-50 h-24 md:h-28 px-6 md:px-12 flex justify-between items-center bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100/50">
+            <nav className="fixed top-0 left-0 w-full z-50 h-24 md:h-28 px-6 md:px-12 flex justify-between items-center bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100/50 md:bg-transparent md:backdrop-blur-none md:shadow-none md:border-none">
                 {/* Logo Section */}
                 <Link href="/" className="relative h-full w-[200px] md:w-[24rem] flex items-center py-0">
                     <Image
