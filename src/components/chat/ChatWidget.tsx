@@ -353,28 +353,31 @@ export default function ChatWidget() {
 
             {/* Premium Side Trigger */}
             {!isOpen && (
-                <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] flex items-center group cursor-pointer" onClick={toggleChat}>
-                    {/* Speech Bubble */}
+                <div
+                    className="fixed right-[-10px] md:right-0 top-32 md:top-1/2 md:-translate-y-1/2 z-[100] flex items-center group cursor-pointer transition-all duration-300"
+                    onClick={toggleChat}
+                >
+                    {/* Speech Bubble - Hidden on small mobile */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 1, duration: 0.5 }}
-                        className="mr-2 relative"
+                        className="mr-2 relative hidden sm:block"
                     >
-                        <div className="bg-white px-4 py-3 rounded-2xl shadow-xl border border-[#c4a05f]/30 whitespace-nowrap">
-                            <p className="text-[#0e2c53] text-[13px] font-bold">
+                        <div className="bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-[#c4a05f]/30 whitespace-nowrap">
+                            <p className="text-[#0e2c53] text-[11px] md:text-[13px] font-bold">
                                 Hi! I am <span className="text-[#c4a05f]">Windoo</span>... <br />
-                                click me i will help u
+                                <span className="text-[10px] opacity-70">Click to chat</span>
                             </p>
                             {/* Bubble Tail */}
                             <div className="absolute right-[-8px] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-r border-t border-[#c4a05f]/30 rotate-45" />
                         </div>
                     </motion.div>
 
-                    {/* Windoo Image */}
+                    {/* Windoo Image - Smaller on mobile */}
                     <motion.div
-                        whileHover={{ x: -15, scale: 1.05 }}
-                        className="relative w-32 h-40 md:w-40 md:h-48"
+                        whileHover={{ x: -10, scale: 1.05 }}
+                        className="relative w-20 h-24 sm:w-28 sm:h-32 md:w-40 md:h-48"
                     >
                         <Image
                             src="/windoo.png"
@@ -383,9 +386,9 @@ export default function ChatWidget() {
                             className="object-contain drop-shadow-2xl"
                         />
                         {/* Status Indicator */}
-                        <div className="absolute top-4 left-4 flex h-4 w-4">
+                        <div className="absolute top-2 left-2 md:top-4 md:left-4 flex h-3 w-3 md:h-4 md:w-4">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 md:h-4 md:w-4 bg-green-500 border-2 border-white"></span>
                         </div>
                     </motion.div>
                 </div>

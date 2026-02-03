@@ -9,8 +9,11 @@ import { TypewriterEffect } from "../ui/TypewriterEffect";
 
 const sliderImages = [
     "/banner.jpg",
-    "/bannerb.jpg",
-    "/bannerc.jpg",
+    "/banner2.jpg",
+    "/banner3.jpg",
+    "/banner4.jpg",
+    "/bannerd.jpg",
+    "/banner6.jpg",
 ];
 
 const services = [
