@@ -13,7 +13,6 @@ const sliderImages = [
     "/banner3.jpg",
     "/banner4.jpg",
     "/bannerd.jpg",
-    "/banner6.jpg",
 ];
 
 const services = [
@@ -32,8 +31,16 @@ export function Hero() {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % sliderImages.length);
-        }, 4000);
+        }, 5000); // Increased to 5s to allow for loading
         return () => clearInterval(timer);
+    }, []);
+
+    // Preload all slider images
+    useEffect(() => {
+        sliderImages.forEach((src) => {
+            const img = new window.Image();
+            img.src = src;
+        });
     }, []);
 
     const words = [
@@ -137,18 +144,23 @@ export function Hero() {
                             <AnimatePresence mode="popLayout" initial={false}>
                                 <motion.div
                                     key={currentImageIndex}
-                                    initial={{ y: "100%" }}
-                                    animate={{ y: 0 }}
-                                    exit={{ y: "-100%" }}
+                                    initial={{ y: "100%", opacity: 0.5 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: "-100%", opacity: 0.5 }}
                                     transition={{ duration: 0.8, ease: "easeInOut" }}
                                     className="absolute inset-0 w-full h-full"
                                 >
+                                    <div className="absolute inset-0 bg-gray-200 animate-pulse" />
                                     <Image
-                                        src={sliderImages[currentImageIndex] || "/banner.jpg"}
+                                        src={sliderImages[currentImageIndex]}
                                         alt="Modern Interior"
                                         fill
-                                        className="object-cover"
+                                        className="object-cover transition-opacity duration-500"
+                                        sizes="(max-width: 1024px) 100vw, 60vw"
                                         priority
+                                        onLoadingComplete={(img) => {
+                                            img.classList.remove("opacity-0");
+                                        }}
                                     />
                                 </motion.div>
                             </AnimatePresence>
